@@ -4,6 +4,7 @@ using DAL.Implementations;
 using DAL.Interfaces;
 using Entities.Abstracciones;
 
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -14,11 +15,13 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 
+
 #region DI
 builder.Services.AddDbContext<QuizContext>();
 builder.Services.AddScoped<IUnidadDeTrabajo, UnidadDeTrabajo>();
-builder.Services.AddScoped<IEmpleadoDAL, EmpleadoDAL>();
 builder.Services.AddScoped<IEmpleadoService, EmpleadoService>();
+builder.Services.AddScoped<IEmpleadoDAL, EmpleadoDAL>();
+
 #endregion
 
 var app = builder.Build();
